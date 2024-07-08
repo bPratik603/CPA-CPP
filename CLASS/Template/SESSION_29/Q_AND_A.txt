@@ -1,0 +1,24 @@
+template <int N>
+double power(double x){
+    return pow(x, N); 
+} 
+
+void test(){
+    const int N = 2; 
+    double rs = power<2>(10.10); 
+}
+
+template <typename T, size_t N> 
+class Stack{
+    private: 
+        T* p_arr; 
+        size_t size; 
+    public: 
+        Stack() : p_arr(new T[N]), size(N){
+
+        }
+}; 
+
+void test(){
+    Stack<int, 10> S; 
+}

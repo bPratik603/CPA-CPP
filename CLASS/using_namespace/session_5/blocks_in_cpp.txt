@@ -1,0 +1,22 @@
+block statements in C++ 
+
+1) branching statements: 
+    if, if/else, if/else if/else, switch 
+
+2) looping 
+    for, while, do/while
+
+3) try, catch 
+
+blocks in 1), 2), 3) MUST appear INSIDE a function block 
+
+4) function block 
+
+5) function block : 
+    outside class block -> stand alone function  / global function / C like function 
+    inside class block -> member function 
+
+6) class block: 
+    class block -> class block 
+///////////////////////////////////////////////////////////////////////////////////////////
+

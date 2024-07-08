@@ -1,0 +1,42 @@
+C: struct 
+C++: class 
+
+C: struct tag_name 
+C++: class class_name 
+
+C: struct tag_name{
+    int day; 
+    int month; 
+    int year;
+}; 
+
+struct tag_name v; 
+malloc(sizeof(struct tag_name)); 
+
+C++: 
+class class_name{
+    private:
+        int day; 
+        int month; 
+        int year
+    public: 
+        int num; 
+        
+}; 
+
+class_name v; 
+new class_name; 
+
+++p; 
+
+#--------------------------------
+
+struct Date{
+    int day; 
+    int month; 
+    int year; 
+}; 
+////////////////////////////////////////////
+
+
+

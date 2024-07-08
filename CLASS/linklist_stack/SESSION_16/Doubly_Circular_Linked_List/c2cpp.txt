@@ -1,0 +1,67 @@
+Header file 
+list.h  -> list.hpp 
+
+1)  All symbolic constants in C should be represented as 
+    global const data. (As per Stroustrup Advice)
+
+    #define SUCCESS  1      /* C */ 
+    const int SUCCESS = 1;  // CPP 
+
+2)  typedef will remain typedefs in C++ 98. 
+    (we can use 'using' statement from C++ 11)
+
+3)  Use class instead of struct. 
+    struct node -> class node 
+    Instead of presenting a pointer to head node as a handle to list, 
+    we encapsulate pointer to node in a new class named list. Therefore, 
+    every new list is a new object of class list containing a pointer 
+    named 'head_node' to store the base address of the dummy of new list. 
+
+4)  Node is an internal data type. Therefore, we do not want the client to be 
+    able to create objects of class node. Therefore, along with data members 
+    of class node, the constructor of class node has also been put under 
+    the 'private' access specifier. 
+
+    Now only three functions can create object of class node. 
+    a) static member function of class node. 
+    b) a friend function. 
+    c) every function in friend class. 
+
+    Because we have declared class list to be a friend of class node, not only 
+    class list will be able to create as many node objects as required but also 
+    access its internal members which is otherwise not allowed. 
+
+5)  In class list, 
+    all interface functions in C -> will be PUBLIC MEMBER FUNCTIONS in class list. 
+
+    create_list() -> default constructor | list() 
+    destroy_list() -> destructor | ~list()
+    and rest of the functions will be added ommitting their first argument which is 
+    list_t* p_list. Why? Because any public member function of class list will run when 
+    its invoked on a list object. Every list object will have a pointer to head node with it. 
+
+    status_t insert_after(list_t* p_list, data_t e_data, data_t new_data); 
+
+    class list{
+        private: 
+            node* head_node; 
+        public: 
+            status_t insert_after(data_t e_data, data_t new_data) 
+            {
+                // head node will be available as this->head_node 
+            }
+    }; 
+
+6)  In class list, about static helper functions. 
+    xcalloc() -> will be replaced by new 
+    free() -> replaced by delete 
+    get_node() -> replaced by constructor of node() 
+
+    generic_insert() | generic_delete() -> PRIVATE AND STATIC members of class list 
+    (
+    why? Because generic_insert() and generic_delete() do not make use of head_node 
+    So in C++ terms they need not have context of calling object. 
+    Hence static
+    )
+    search_node() -> PRIVATE AND NON_STATIC MEMBER OF CLASS LIST 
+#############################################################################################

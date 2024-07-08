@@ -1,0 +1,37 @@
+int main(void)
+{
+
+}
+
+CRT 
+cl /Fe:app.exe prog.c 
+gcc -o app prog.c 
+
+CRT -> LINK 
+_start 
+    int ret; 
+    ret = main() 
+    exit(ret); 
+
+What happens inside exit() LIBRARY function 
+
+1)  Invoke all exit handlers resgistered by atexit() function 
+    in the reverse order of their registration (if any)
+2)  stdout buffer, stdin buffer clean 
+3)  _exit(ret); // SYSTEM CALL 
+
+mainCRTStartup()
+    ret = main() 
+    exit(ret); 
+
+1)  Invoke all exit handlers resgistered by atexit() function 
+    in the reverse order of their registration (if any)
+2)  stdout buffer, stdin buffer clean 
+3)  ExitProcess(ret); // SYSTEM CALL 
+
+Windows: 
+libucrt.lib 
+
+Linux: 
+crt1.o crti.o crtn.o crtbegin.o crtend.o 
+//---------------------------------------------------------------------------

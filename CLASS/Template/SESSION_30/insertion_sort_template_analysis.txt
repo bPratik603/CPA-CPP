@@ -1,0 +1,20 @@
+line 7: T* arr : Does not generate any condition on template argument. 
+line 9: T key : Template argument must have a default constructor
+line 12: key = arr[j] : synthesized version of copy assignment operator 
+                        if not pointer is involved. 
+                        Otherwise deep copy will be required. 
+line 14: arr[i] > key: operator>() must be a member function of template argument. 
+line 15: arr[i+1] = arr[i] : same as line 12 
+line 18: arr[i+1] = key : Same as line 12 
+#-------------------------------------------------------------------------------------
+line 29: template argument object must be compatible with std::cout << 
+#---------------------------------------------------------------------------------------
+If we are to instantiate insertion_sort template by user defined data type then the type 
+definition must include 
+1) Default constructor 
+2) Member function: operator>() 
+3) friend function: operator<<()
+4) Copy control members if contains pointer (all three members of copy control i.e. 
+    copy constructor, copy assignment operator, destructor). The copy control must 
+    implement a deep copying approach. 
+#----------------------------------------------------------------------------------------

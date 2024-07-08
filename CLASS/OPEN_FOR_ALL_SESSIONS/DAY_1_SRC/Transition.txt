@@ -1,0 +1,30 @@
+struct T{
+    T1 mem1; 
+    T2 mem2; 
+
+    Tk memk; 
+}; 
+
+f1(), f2(), f3()...., fn() --> functions 
+
+// if all functions are allowed to access struct T instances 
+// with knowledge of internal layout then you would not be 
+// able to upgrade struct T without fear of breaking clients 
+
+// on the other hand if you don't allow ANY function to access 
+// internal members of instances of struct T then such instance 
+// will be a waste of memory! 
+
+// If f1() f2(), f3(), f4() -> there are allowed to access 
+internal data 
+
+// f5() to fn() are asked to call f1() to f4() whenever they need 
+// anythint to be done on strut T instance. 
+
+// This obviously creates a PRIVILEGE DIVIDE within client functions 
+
+// !!! 
+
+// To avoid that, implementation of f1(), f2(), f3() & f4() can be 
+shifted to SERVER SIDE ..... 
+

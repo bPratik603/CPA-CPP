@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/yoges/OneDrive/Documents/CPA/CPP/cpp_11_14/CPP_11_REPO/FUNCTIONAL_PROGRAMMING/14_generic_filter",
+      "program": "c:/Users/yoges/OneDrive/Documents/CPA/CPP/cpp_11_14/CPP_11_REPO/FUNCTIONAL_PROGRAMMING/14_generic_filter/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

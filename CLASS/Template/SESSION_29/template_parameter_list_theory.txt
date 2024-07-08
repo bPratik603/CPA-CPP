@@ -1,0 +1,47 @@
+1) General Syntax structure of template parameter list 
+template <template parameter list>
+
+2)  Template parameter list consists of one or more 
+    comma separated list of template parameters. 
+
+3)  Every template parameter has the following general structure 
+TypeAnnotation VariableName 
+
+4)  There are three different types of template parameters: 
+    a) non-type parameter 
+    b) type parameter 
+    c) template-template parameter 
+
+5)  
+    a) Template non-type parameter: 
+        General Structure: TypeAnnotation VariableName 
+        TypeAnnotation can be replaced by any integer type 
+        VariableName is any valid C++ identifier name. 
+
+        e.g. 
+        template <int N> 
+        We have chosen int for TypeAnnotation part. 
+        We have chosen N for VariableName part. 
+
+        Therefore, we say that N is a non-type template parameter. 
+        [
+            N is a template parameter (because its under template<>)
+            Its a non-type parameter because TypeAnnotation part is replaced by 
+            integer type. 
+        ] 
+
+    b)  Template type parameter: 
+        General Syntax: TypeAnnotation VariableName 
+        While writing template type parameter the type annotation part 
+        MUST BE replaced by keyword 'typename'  
+        VariableName is any valid C++ identifier name.
+
+        template <typename T> 
+
+        We say that T is a template type parameter. 
+        [
+            TypeAnnotation part is replaced by the keyword typename 
+            Variable Name is a valid C++ identifier. 
+        ] 
+        template <typename T1, typename T2, int N1, long N2> 
+

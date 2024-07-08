@@ -1,0 +1,14 @@
+TO conver prog.cpp into prog.exe with desired exe name 
+# cl /EHsc /Fe:app.exe  prog.cpp 
+
+# To generate assembly file with desired name 
+# cl /EHsc /Fadesired_name.asm prog.cpp 
+
+#---------------------------------------------------------------
+
+prog.cpp to desired exe name 
+# g++ -o exe_name prog.cpp 
+
+prog.cpp to prog.S 
+# g++ -S -o prog.S prog.cpp 
+(Note that S in -S is capital S)

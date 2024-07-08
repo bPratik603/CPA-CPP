@@ -1,0 +1,5 @@
+CONCEPTWISE -> Exception is an IRRECOVERABLE ERROR CONDITION. 
+
+throw std::runtime_error("number is negative"); 
+
+throw std::runtime_error("error message"); 

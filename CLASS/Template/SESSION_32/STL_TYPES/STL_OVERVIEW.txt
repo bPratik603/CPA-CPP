@@ -1,0 +1,48 @@
+C++ 98 STANDARD TEMPLATE LIBRARY: 
+    PROGRAMMING LANGUAGE STANDARD 
+
+    cpp 
+    cc 
+    as 
+    ld 
+
+    LIBRARY??
+
+    text based output -> stdout 
+    text based input -> stdin 
+
+    int num = 10; 
+
+    istream                 ostream     iostream
+
+ifstream istringstream      ofstream ostringstream 
+
+
+string 
+
+streams: 
+    iostream 
+    fstream 
+    stringstream 
+
+sequential containers 
+    vector 
+    list 
+    deque 
+
+associative 
+    map 
+    multimap 
+
+neither 
+    set 
+    multiset 
+
+adapters 
+    stack 
+    queue 
+
+algorithm: 
+    sort 
+    search 
+    etc. 

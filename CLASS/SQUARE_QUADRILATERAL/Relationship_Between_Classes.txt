@@ -1,0 +1,71 @@
+class T1, class T2. 
+
+1) Depends on 
+T2 depends on T1 
+
+We say that the class T2 depends on the class T1 if one of the member functions of T2 
+creats an object of T1 and invokes member functions of T1 on it. 
+
+class T2{
+    public: 
+        void mem_func_of_T2(){
+            T1 objT1(init_data); 
+            objT1.f1(); 
+
+            objT1.f2();   
+        }
+}; 
+
+/////////////////////////////////////////////////////////
+
+2) Has a 
+T2 has a T1: 
+Class definition of T2 contains instance / pointer / 
+reference variable of T1 as one of its non-static 
+data members. 
+
+// T1 
+struct Date{
+    int day; 
+    int month; 
+    int year; 
+}; 
+
+// T2 
+struct Book{
+    char* book_name; 
+    struct Date pub_date; 
+}; 
+
+// T2 
+struct Book{
+    char* book_name; 
+    struct Date* p_pub_date; 
+}; 
+
+/////////////////////////////////////////////////////////
+3) is-a relationship: 
+T2 is a special case of T1. 
+
+General vs Special: 
+    TODI -> RAG -> RULE-SET 
+        GUJARI 
+        MIYAN KI TODI 
+    
+    MALHAR 
+        SHUDH MALHAR 
+        MEGH MALHAR 
+        GAUD MALHAR 
+
+    THAAT (RAG-FACTORY) -> 10/12
+        -> RAG 
+            -> VARIANT 
+////////////////////////////////////////////////////////////
+COMPLEX SYSTEM -> GENRAL - SPECIAL HIERARCHY -> INHERITANCE 
+
+OBJECT BASED PROGRAMMING + INHERITANCE = OOP 
+OOP + template = OOP + GENERIC PROGRAMMING 
+////////////////////////////////////////////////////////////////
+
+
+

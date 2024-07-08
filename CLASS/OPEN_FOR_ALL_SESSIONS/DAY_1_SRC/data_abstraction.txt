@@ -1,0 +1,19 @@
+// Under C lang, if a function has structure instance or structure pointer 
+// then C compiler CANNOT prevent access to internal members of structure 
+// within that function (if function uses dot or arrow operator)
+// BECAUSE function owns that object (owns = memory allocation)
+
+#----------------------------------------------------------------------------
+
+
+// blanket ban on all functions to access the internal members of a structure 
+// will not work because then NOBODY will be able to access structure instances 
+// and such data will be USELESS. 
+
+#-------------------------------------------------------------------------------
+
+// SOME FUNCTIONS SHOULD BE WRITTEN TO ACCESS STRUCTURE INSTANCE KNOWING THEIR 
+// INTERNAL LAYOUT 
+
+// REST OF THE FUNCTIONS WHO WANT TO PROCESS STRUCTURE INSTANCE SHOULD DO SO 
+// BY CALLING SUCH FUNCTIONS WHICH ARE PRIVY TO INTERNAL DATA LAYOUT OF STRUCTURE 

@@ -1,0 +1,2 @@
+SOURCES += \
+    HelloWorld.cpp

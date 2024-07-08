@@ -1,0 +1,171 @@
+Type Inference. 
+
+int a; 
+int b; 
+int c; 
+
+c = a + b;
+
+type(a) == int ....(given by programmer)
+type(b) == int ....(given by programmer)
+type(a+b) == int ....(Type Inference Rule)
+
+type(c) == int  .... (given by programmer)
+
+type(rhs) == type(lhs)
+
+go ahead with assembly code generation. 
+
+movl    a, %eax 
+movl    b, %edx 
+addl    %edx, %eax 
+movl    %eax, c 
+
+Type Inference of Expression: 
+    An ability of compiler to conclude about the type of evaluation of expression 
+    based on types of operands and operators involved in the expression is called 
+    as Type Inference. 
+
+int m = 10; 
+int n = 20; 
+int* p;  
+int* q; 
+int arr[5]; 
+
+p = &m; 
+q = &n; 
+arr[0] = *p + *q;
+
+consider statement: p = &m; 
+
+type(m)     == int (programmer assigned)
+type(&m)    == int* (inference rule)
+type(p)     == int* (programmer assigned)
+
+type(p) == type(&m)
+
+p = &m; (go ahead with assembly)
+
+consider statement: q = &n; 
+
+type(n)     == int (programmer assigned)
+type(&n)    == int* (inference rule)
+type(q)     == int* (programmer assigned)
+
+type(q) == type(&n)
+
+q = &n; (go ahead with assembly)
+
+#---------------------------------------------------
+Consider the following statement 
+
+a[i] = *p + *q; 
+
+type(p)==int*   (assigned by programmer)
+type(*p) == int  (type inference rule)
+
+type(q) == int* (assigned by programmer)
+type(*q) == int (assigned by programmer)
+
+type(*p + *q) == int (type inference rule)
+
+type(a) ==  int     []  (assigned by programmer)
+type(a[i]) == int       (type inference rule)
+
+type(a[i]) == type(*p + *q)
+therefore, go ahead with assembly. 
+
+movl    p, %eax 
+movl    (%eax), %eax 
+movl    q, %edx 
+movl    (%edx), %edx 
+addl    %edx, %eax 
+movl    i, %ebx 
+movl    %eax, a(, %ebx, 4) 
+
+Type Casting: 
+    Type casting is feature of a typed programming language 
+    which allows programmer to OVERRIDE the inferred type of 
+    expression. 
+#--------------------------------------------------------------
+
+Syntax in C language: 
+If expr is either an LHS or an RHS expression then 
+(T)expr 
+is a syntax which tells compiler that it must treat 
+expr of the type T (irrespective of the inferred type 
+based on operators and types of operands in the expr)
+
+#------------------------------------------------------------------
+
+int n = 0x0a0b0c0d; 
+
+(char)n; 
+
+inferred type of n == int 
+(char)n 
+is a type casting syntax. 
+(type casting -> override the inferred type of expr)
+
+in this syntax, inferred type of rhs expr n, (int) 
+is overridden by casting type char. 
+
+Compiler treats n as a char for this particular statement. 
+(for next occurrences of n not involving type casting, 
+n very remains to be an integer)
+
+#--------------------------------------------------------
+
+int n = 0x0a0b0c0d; 
+
+type(n) == int 
+type(&n) == int* 
+
+(char*)&n; 
+
+*(char*)&n; 
+
+M[5000:5003]
+
+5000: 0x0d
+5001: 0x0c
+5002: 0x0b 
+5003: 0x0a
+
+&n  == address(5000)
+(char*)&n == address(5000)
+
+In the first case type of M[5000] == int* 
+In the second case type of M[5000] == char* 
+
+*(char*)&n 
+*(&n)
+
+*(M[5000])
+
+read from M[5000]
+
+how many bytes to read from M[5000]
+that depends on type expression whose evaluation was M[5000]
+
+
+expr 
+inferred type: Ti 
+casting type : Tc 
+
+(Tc)expr
+
+
+OPERATOR((Tc)expr)
+
+before OPERATOR can be applied expression must be 
+evaluated. 
+
+After evaluation the value/the object will be of Type Ti 
+
+expr -> Ti  v/o 
+v(value), o(object)
+
+OP(expr)
+
+OP(Tc)expr

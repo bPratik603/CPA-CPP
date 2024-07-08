@@ -1,0 +1,13 @@
+1) Perimeter -> Sum of all sides of quadrilateral is a perimeter 
+
+2) Area-> 
+if a, b, c, d are sides of quadrilateral: 
+
+s = (a + b + c + d)/2   (also known as semi-perimeter)
+
+sqrt of ((s-a) * (s-b) * (s-c) * (s-d)) (Horn's formula)
+
+3) Validity check: 
+    lengths of all sides of square must be positive 
+    sum of any three sides of quadrilateral is greater than third fourth one 
+    

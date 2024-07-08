@@ -1,0 +1,33 @@
+class B1{
+    // some data 
+    // some member functions 
+}; 
+
+class B2{
+    // some data 
+    // some member functions 
+}; 
+
+
+// multiple inheritance 
+class D : public B1, public B2{
+
+}; 
+
+class B{
+
+}; 
+
+class D1 : public B{
+
+}; 
+
+class D2 : public D1{
+
+}; 
+
+class T2{
+    private: 
+        T1 obj_T1; 
+        T1* pT1; 
+}; 

@@ -1,0 +1,14 @@
+int num; 
+float fnum; 
+double dnum; 
+
+// C -> C++ -> Java 
+
+n = 10 
+
+var n = 10 
+
+var n int = 10; 
+
+extern int num;  // Pure data (type) declaration statement which does not allocated memory 
+int num;        // Data Definition Statement which is also a data (type) declaration statement 

@@ -1,0 +1,83 @@
+1) 
+    Callback function's signature is decided by compiler/os/library/package/framework 
+    Signature of signal(and therefore slot) is in the hands of programmer 
+
+2)  If callback function accepts the event id, then data of all events must be 
+    encoded in a uniform format which may not be suitable. 
+
+    e.g. Under Win32 SDK, GUI application, WndProc() is a common callback function 
+    for all events occurring on a particular window 
+
+    From point 1, we gather than the signature of this function would be specified 
+    by the Window OS (this is correct!)
+
+    LRESULT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+    {
+        switch(uMsg)
+        {
+            case WM_CREATE: 
+                fetch event data from wParam (unsigned long long int)
+                lParam (long long int)
+                break; 
+
+            case WM_PAINT: 
+                fetch event data from wParam (unsigned long long int)
+                lParam (long long int)
+                break; 
+
+            case WM_LBUTTONDOWN: 
+                fetch event data from wParam (unsigned long long int)
+                lParam (long long int)
+                break; 
+
+            case WM_RBUTTONDOWN: 
+                fetch event data from wParam (unsigned long long int)
+                lParam (long long int)
+                break; 
+
+            case WM_COMMAND: 
+                fetch event data from wParam (unsigned long long int)
+                lParam (long long int)
+                break; 
+
+                // etc
+        }
+    }
+
+
+    SLOT is specific to a SIGNAL. 
+    Data emitted by signal is readily caught by slot and the signal and slot 
+    which are connected together must be signature compatible with each other 
+
+    emit rbuttondown(1.1, 2.2)
+
+    emit command(65); 
+
+    rbuttondown SLOT 
+
+    slot_of_rbuttondown(double, double); 
+
+    command SLOT 
+    slot_of_command(int ascii_code); 
+
+3)  Multiple handlers, with multiple data on same event is not possible in 
+    CALLBACK model 
+
+    emit sig(input data);   // objT of type T is used to emit signal 
+
+    CC1 -> obj_1_CC1  (different data)
+    CC1 -> obj_2_CC1  (different data) 
+
+    CC2 -> obj_1_CC2   (different data)
+
+    CC7 -> obj_1_CC7  (different data)
+
+    catch_sig(compatible with input_data of sig) is a slot implemented in 
+    classes, CC1, CC2, CC7 
+
+    obj_1_CC1.catch_sig(input_data with emit);
+    obj_2_CC1.catch_sig(input_data with emit);
+    obj_1_CC2.catch_sig(input_data with emit);
+    obj_1_CC7.catch_sig(input_data with emit);
+
+    // LOGIC of catch_sig in CC1, CC3, CC7 can be different 

@@ -1,0 +1,45 @@
+# ls -l 
+# echo $?
+
+prog.c 
+
+int main(void)
+{
+    return (5); 
+}
+
+# gcc -o prog prog.c 
+# ./prog 
+# echo $? 
+0 
+
+PROCESS CONTROL BLOCK
+{
+    DWORD dwExitCode; 
+} 
+
+struct task_struct 
+{
+    int exit_code; 
+
+}; 
+
+2nd byte -> EXIT CODE 
+
+pid = fork(); 
+if(pid == 0)
+{
+    char* argv[] = {"./prog", NULL}; 
+    execve("./prog", argv, envp); 
+}
+else 
+{
+    wait(&ret); 
+
+    int exit_status = (int)(*(unsigned char*)((char*)ret + 1)); 
+    getenv 
+
+    ?=exit_status
+
+    echo $?
+}

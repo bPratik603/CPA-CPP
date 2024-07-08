@@ -1,0 +1,83 @@
+static_cast<Tc>(expr)
+    1) If you want to make implicit casts explicit. 
+    2) Those implicit casts in C which are INVALID in C++ 
+        but valid in C 
+    3) To compute desired vptr from a derived object 
+       implementing one or more pure abstract base class(es); 
+
+dynamic_cast<Tc>(expt)
+
+reinterpret_cast<Tc>(expr)
+
+const_cast<Tc>(expr)
+
+(Tc)expr
+
+Example of static cast 
+
+1) 
+int n = 'A'; 
+
+int n = static_cast<int>('A'); 
+
+printf("%c", static_cast<char>(n)); 
+
+printf("%hhu", static_cast<unsigned char>(n)); 
+
+
+2) 
+T* -> void* is valid in C/C++ 
+but void* -> T* is valid in C but not in C++ 
+
+void* p; 
+int n; 
+char c; 
+flaot f; 
+
+p = &c; // valid both in C & C++
+p = &n; // valid both in C & C++
+p = &f; // valid both in C & C++
+
+int* pi = malloc(sizeof(int)); // valid in C, invalid in C++
+char* pc = malloc(sizeof(char));  // valid in C, invalid in C++
+float *pf = malloc(sizeof(float));   // valid in C, invalid in C++
+
+int* pi = (int*)malloc(sizeof(int)); 
+
+int* pi = static_cast<int*>(malloc(sizeof(int))); 
+
+3) 
+
+// pure abstract base class A
+
+class IA{
+    public: 
+        virtual void f1() = 0; 
+        virtual void f2() = 0; 
+}; 
+
+class IB{
+    public: 
+        virtual void g1() = 0; 
+        virtual void g2() = 0; 
+}; 
+
+class D : public IA, public IB{
+    // implement f1(), f2(), g1(), g2()
+}; 
+
+int main(void)
+{
+    D* pD = new D; 
+
+    static_cast<IA*>(pD); // address of vptr of A above object of class D pointed by pD
+    static_cast<IB*>(pD); // address of vptr of B above object of class D pointed by pD 
+}
+
+
+dynamic_cast : to move through inhertance tree swiftly 
+
+reinterpret_cast : (Tc)expr
+(unrestrained type casting)
+
+const_cast : give or discard const qualifier 

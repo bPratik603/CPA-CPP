@@ -1,0 +1,45 @@
+Coding plan: 
+
+date.h  date_server.c --> // server side (Company machine)
+
+date.h + date_server -> BUILD -> date.dll 
+
+
+WRAPS(date.dll + date.h)
+
+and gives to a client 
+
+
+
+date_client.c --> // Client machine (at his home )
+
+client will include header date.h without which 
+struct date declaration cannot be found. 
+
+Client will UNWRAP (date.h + date.dll)
+
+// DEPLOYMENT AT CLIENT's END 
+date.h -> include 
+date.dll -> system32 
+
+// CLIENT WILL INCLUDE date.h and LINK date.dll 
+
+// if server changes struct date then server should 
+// also change create_date to destroy_date definitions 
+
+// prepare new date.h and new date.dll 
+
+// client SIMPLY needs to replace 
+old date.h-> new date.h 
+
+and 
+
+old date.dll by new date.dll
+
+
+
+
+
+
+
+

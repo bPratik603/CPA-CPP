@@ -1,0 +1,28 @@
+Constructor 
+    default constructor (default)
+    parameterized constructor (param)
+    copy constructor (copy)
+
+(~default ^ ~param ^ ~copy) -> synthesized default 
+(~copy -> synthesized copy) 
+
+synthesized default 
+synthesized copy 
+
+// copy assignment operator 
+T& T::operator=(const T& other)
+{
+
+}
+
+~copy assignment operator -> synthesized copy assignment operator 
+
+synthesized default constructor == empty body 
+synthesized copy constructor: 
+    for all non-static data members in class  == 
+        this->mem(other.mem);
+synthesized copy assignment operator 
+    for all non-static data members in class == 
+        this->mem = other.mem;
+
+        
